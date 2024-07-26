@@ -20,7 +20,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: gray;
+            background-color: black;
             color: #fff;
             padding: 10px 0;
         }
@@ -64,6 +64,47 @@
             display: flex;
             flex-direction: column;
         }
+
+        .container-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .container {
+            width: 180px;  /* Aumenta a largura do container */
+            height: 180px; /* Aumenta a altura do container */
+            background: linear-gradient(to bottom right, #e0f7fa, #b3e5fc);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .container:hover {
+            background: linear-gradient(to bottom right, #b3e5fc, #e0f7fa);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .container img {
+            width: 140px;  /* Aumenta a largura do ícone */
+            height: 140px; /* Aumenta a altura do ícone */
+            margin-bottom: 10px;
+        }
+
+        .container p {
+            font-size: 16px;
+            margin: 0;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -80,7 +121,48 @@
         </ul>
     </div>
     <div class="content">
-        <!-- Conteúdo principal aqui -->
+        <div class="container-grid">
+            <div class="container" onclick="window.location.href='#'">
+                <img src="https://static.vecteezy.com/system/resources/previews/019/153/028/non_2x/3d-minimal-supermarket-cash-register-icon-statistical-billing-and-counting-cash-register-with-a-statistic-icon-3d-rendering-illustration-free-png.png" alt="Ícone 1">
+                <p>VENDA</p>
+            </div>
+            <div class="container" onclick="window.location.href='#'">
+                <img src="https://cdn3d.iconscout.com/3d/premium/thumb/product-5806313-4863042.png?f=webp" alt="Ícone 2">
+                <p>PRODUTOS</p>
+            </div>
+            <div class="container" onclick="window.location.href='#'">
+                <img src="https://static.vecteezy.com/system/resources/previews/021/597/780/original/customer-3d-render-icon-illustration-png.png" alt="Ícone 3">
+                <p>CLIENTES</p>
+            </div>
+            <div class="container" onclick="window.location.href='#'">
+                <img src="https://static.vecteezy.com/system/resources/previews/013/484/033/original/digital-payment-3d-icon-png.png" alt="Ícone 4">
+                <p>CONTAS A RECEBER ( carnê )</p>
+            </div>
+            <div class="container" onclick="window.location.href='#'">
+                <img src="https://static.vecteezy.com/system/resources/previews/021/616/146/original/budget-3d-render-icon-illustration-png.png" alt="Ícone 5">
+                <p>DESPESAS</p>
+            </div>
+            <div class="container" onclick="window.location.href='#'">
+                <img src="https://cdn-icons-png.flaticon.com/512/1440/1440524.png" alt="Ícone 6">
+                <p>DEVOLUÇÃO MERCADORIA</p>
+            </div>
+            <div class="container" onclick="window.location.href='#'">
+                <img src="https://static.vecteezy.com/system/resources/previews/011/107/359/original/bank-3d-icon-illustration-png.png" alt="Ícone 7">
+                <p>CONTROLE BANCÁRIO/ CAIXA GERENCIAL</p>
+            </div>
+            <div class="container" onclick="window.location.href='#'">
+                <img src="https://static.vecteezy.com/system/resources/previews/019/874/030/original/colorful-shopping-icon-icon-3d-3d-rendering-png.png" alt="Ícone 8">
+                <p>COMPRAS</p>
+            </div>
+            <div class="container" onclick="window.location.href='#'">
+                <img src="https://static.vecteezy.com/system/resources/previews/008/550/216/original/cashier-machine-icon-3d-illustration-e-commerce-png.png" alt="Ícone 9">
+                <p>ABERTURA/FECHAMENTO CAIXA</p>
+            </div>
+            <div class="container" onclick="window.location.href='#'">
+                <img src="https://cdn3d.iconscout.com/3d/premium/thumb/relatorio-analitico-6248681-5115853.png" alt="Ícone 10">
+                <p>FLUXO CAIXA RELATÓRIO</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
