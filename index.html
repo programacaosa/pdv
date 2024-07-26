@@ -16,77 +16,65 @@
             overflow: hidden;
         }
 
-        .sidebar {
-            width: 250px;
-            height: 100vh;
+        .navbar {
+            width: 100%;
             background-color: #333;
             color: #fff;
-            padding-top: 0px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
             position: fixed;
             top: 0;
             left: 0;
             z-index: 1;
-            display: flex;
-            flex-direction: column;
-            border-right: 2px solid #444;
-            transition: transform 0.3s ease;
         }
 
-        .sidebar.closed {
-            transform: translateX(-250px);
-        }
-
-        .sidebar .logo {
+        .navbar .logo {
             display: flex;
             align-items: center;
-            padding: 10px 20px;
-            border-bottom: 4px solid gray;
-            background-color: #222;
-            margin-top: -10px;
         }
 
-        .sidebar .logo img {
+        .navbar .logo img {
             height: 50px;
             border-radius: 50%;
             border: 2px solid #444;
         }
 
-        .sidebar .logo span {
+        .navbar .logo span {
             margin-left: 10px;
             font-size: 20px;
             font-weight: bold;
         }
 
-        .sidebar ul {
+        .navbar ul {
             list-style-type: none;
+            display: flex;
             padding: 0;
             margin: 0;
-            flex-grow: 1;
         }
 
-        .sidebar ul li {
+        .navbar ul li {
             padding: 15px 20px;
-            text-align: left;
+            text-align: center;
             display: flex;
             align-items: center;
-            border-bottom: 1px solid #444;
         }
 
-        .sidebar ul li a {
+        .navbar ul li a {
             color: #fff;
             text-decoration: none;
             display: flex;
             align-items: center;
-            width: 100%;
         }
 
-        .sidebar ul li a:hover {
+        .navbar ul li a:hover {
             background-color: #555;
             border-radius: 5px;
         }
 
-        .sidebar ul li i {
-            margin-right: 15px;
+        .navbar ul li i {
+            margin-right: 10px;
             font-size: 18px;
         }
 
@@ -98,12 +86,11 @@
             background-color: #222;
             color: #fff;
             position: fixed;
-            top: 0;
-            left: 250px;
-            width: calc(100% - 250px);
+            top: 60px;
+            left: 0;
+            width: 100%;
             z-index: 2;
             border-bottom: 1px solid #555;
-            transition: left 0.3s ease;
         }
 
         .header-content {
@@ -123,16 +110,13 @@
         }
 
         .content {
-            margin-left: 250px;
             padding: 20px;
-            width: calc(100% - 250px);
+            margin-top: 120px; /* Ajustar conforme a altura do navbar e header */
             display: flex;
             flex-direction: column;
-            height: calc(100vh - 60px);
-            position: relative;
+            height: calc(100vh - 180px); /* Ajustar conforme a altura do navbar e header */
             background-color: #f4f4f4;
-            margin-top: 60px;
-            transition: margin-left 0.3s ease;
+            overflow: auto;
         }
 
         .top-row {
@@ -175,46 +159,22 @@
 
         /* Estilos para dispositivos móveis */
         @media (max-width: 768px) {
-            .sidebar {
-                width: 200px;
-                transform: translateX(-200px);
+            .navbar ul {
+                flex-direction: column;
             }
 
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            header {
-                left: 0;
-                width: 100%;
+            .navbar ul li {
+                padding: 10px 0;
             }
 
             .content {
-                margin-left: 0;
-                width: 100%;
-            }
-
-            .top-row {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .container {
-                max-width: 100%;
-            }
-
-            .hamburger-menu {
-                display: flex;
-                align-items: center;
-                cursor: pointer;
-                font-size: 24px;
-                margin-left: 20px;
+                margin-top: 180px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="sidebar" id="sidebar">
+    <div class="navbar">
         <div class="logo">
             <img src="logo.png" alt="Logo">
             <span>PDV SISTEMA GESTÃO</span>
@@ -231,9 +191,6 @@
         </ul>
     </div>
     <header>
-        <div class="hamburger-menu" onclick="toggleSidebar()">
-            <i class="fas fa-bars"></i>
-        </div>
         <div class="header-content">
             <span>GESTÃO EMPRESARIAL</span>
         </div>
@@ -260,12 +217,5 @@
         </div>
         <!-- Container removido para o gráfico -->
     </div>
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('closed');
-            sidebar.classList.toggle('open');
-        }
-    </script>
 </body>
 </html>
