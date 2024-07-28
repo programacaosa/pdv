@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GESTÃO EMPRESAS</title>
+    <link rel="manifest" href="/manifest.json">
     <style>
         @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
@@ -130,6 +131,24 @@
             margin-left: 10px;
         }
 
+        #install-btn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        #install-btn.show {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             .horizontal-menu ul li {
                 padding: 10px 10px; /* Reduce padding */
@@ -218,29 +237,46 @@
             </div>
             <div class="container" onclick="window.location.href='#'">
                 <img src="https://cdn-icons-png.flaticon.com/512/1440/1440524.png" alt="Ícone 6">
-                <p>DEVOLUÇÃO MERCADORIA</p>
-            </div>
-            <div class="container" onclick="window.location.href='#'">
-                <img src="https://static.vecteezy.com/system/resources/previews/011/107/359/original/bank-3d-icon-illustration-png.png" alt="Ícone 7">
-                <p>CONTROLE BANCÁRIO/ CAIXA GERENCIAL</p>
-            </div>
-            <div class="container" onclick="window.location.href='#'">
-                <img src="https://static.vecteezy.com/system/resources/previews/019/874/030/non_2x/colorful-shopping-icon-icon-3d-3d-rendering-png.png" alt="Ícone 8">
-                <p>COMPRAS</p>
-            </div>
-            <div class="container" onclick="window.location.href='#'">
-                <img src="https://cdn3d.iconscout.com/3d/premium/thumb/caixa-maquina-5682237-4731265.png" alt="Ícone 9">
-                <p>ABER/FECHAMEN</p>
-            </div>
-            <div class="container" onclick="window.location.href='#'">
-                <img src="https://static.vecteezy.com/system/resources/previews/028/272/920/original/cash-flow-3d-rendering-isometric-icon-png.png" alt="Ícone 10">
-                <p>FLUXO CAIXA</p>
+                <p>ALMOXARIFADO</p>
             </div>
         </div>
     </div>
     <div class="footer">
-        <p>&copy; 2023 - Todos os direitos reservados</p>
-        <img src="https://logosmarcas.net/wp-content/uploads/2020/04/Nike-Logo-1978.png" alt="Logo">
+        <p>Gestão Empresas 2024</p>
+        <img src="https://image.shutterstock.com/image-vector/vector-logo-image-circle-blue-260nw-1525756010.jpg" alt="Logo">
     </div>
+
+    <!-- Install Button -->
+    <button id="install-btn">Instalar</button>
+
+    <script>
+        let deferredPrompt;
+        const installBtn = document.getElementById('install-btn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.classList.add('show');
+        });
+
+        installBtn.addEventListener('click', () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((result) => {
+                    if (result.outcome === 'accepted') {
+                        console.log('Usuário aceitou a instalação');
+                    } else {
+                        console.log('Usuário rejeitou a instalação');
+                    }
+                    deferredPrompt = null;
+                    installBtn.classList.remove('show');
+                });
+            }
+        });
+
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA instalada');
+        });
+    </script>
 </body>
 </html>
